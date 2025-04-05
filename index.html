@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A.S. COACHING CLASSES - Board Exam Specialists</title>
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            line-height: 1.6;
+            color: #333;
+            background-color: #f0f0f0;
+        }
+        
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        ul {
+            list-style: none;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: #e74c3c;
+            color: white;
+            border-radius: 4px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background-color: #c0392b;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            text-align: center;
+            color: #e74c3c;
+        }
+        
+        .section-title::after {
+            content: "";
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: #e74c3c;
+        }
+        
+        .section-padding {
+            padding: 80px 0;
+        }
+        
+        /* Header Styles */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #2c3e50;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .logo-img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        
+        .logo-text {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #e74c3c;
+        }
+        
+        .logo-text span {
+            color: #ecf0f1;
+        }
+        
+        .nav-menu {
+            display: flex;
+            gap: 30px;
+        }
+        
+        .nav-menu a {
+            font-weight: 600;
+            color: #ecf0f1;
+            position: relative;
+            padding: 5px 0;
+        }
+        
+        .nav-menu a::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: #e74c3c;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-menu a:hover::after {
+            width: 100%;
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(44, 62, 80, 0.8), rgba(44, 62, 80, 0.8)), url('https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: #ecf0f1;
+            margin-top: 80px;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero-title {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            color: #ecf0f1;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 40px;
+            font-weight: 300;
+            color: #bdc3c7;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+        }
+        
+        .btn-secondary {
+            background-color: transparent;
+            border: 2px solid #e74c3c;
+            color: #e74c3c;
+        }
+        
+        .btn-secondary:hover {
+            background-color: #e74c3c;
+            color: white;
+        }
+        
+        /* Features Section */
+        .features-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .feature-box {
+            background-color: #2c3e50;
+            padding: 40px 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: all 0.3s ease;
+            color: #ecf0f1;
+        }
+        
+        .feature-box:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .feature-icon {
+            font-size: 40px;
+            color: #e74c3c;
+            margin-bottom: 20px;
+        }
+        
+        .feature-title {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #ecf0f1;
+        }
+        
+        /* Director Section */
+        .director-section {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+        }
+        
+        .director-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .director-img {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            object-fit: cover;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .director-info h3 {
+            font-size: 2rem;
+            color: #ecf0f1;
+            margin-bottom: 10px;
+        }
+        
+        .director-title {
+            color: #e74c3c;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+        
+        .director-desc {
+            color: #bdc3c7;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+        
+        /* Courses Section */
+        .courses {
+            background-color: #f0f0f0;
+        }
+        
+        .courses-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .course-card {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .course-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .course-img {
+            height: 200px;
+            width: 100%;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .course-content {
+            padding: 25px;
+        }
+        
+        .course-title {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: #ecf0f1;
+        }
+        
+        .course-desc {
+            color: #bdc3c7;
+            margin-bottom: 20px;
+        }
+        
+        .course-stats {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.9rem;
+            color: #888;
+            margin-bottom: 20px;
+        }
+        
+        /* Contact Section */
+        .contact-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 50px;
+        }
+        
+        .contact-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: #e74c3c;
+        }
+        
+        .contact-details {
+            margin-bottom: 30px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .contact-icon {
+            margin-right: 15px;
+            color: #e74c3c;
+            font-size: 1.2rem;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #e74c3c;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+        
+        .social-link:hover {
+            background-color: #c0392b;
+            transform: translateY(-3px);
+        }
+        
+        .contact-form .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .contact-form input,
+        .contact-form textarea,
+        .contact-form select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+            background-color: white;
+        }
+        
+        .contact-form textarea {
+            height: 150px;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            padding: 40px 0 20px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-column h3::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background-color: #e74c3c;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a:hover {
+            color: #e74c3c;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+            }
+            
+            .nav-menu {
+                margin-top: 20px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .director-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .director-img {
+                width: 250px;
+                height: 250px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-container">
+                    <img src="https://aicursor.com/images/user_image.jpg" alt="A.S. COACHING CLASSES Logo" class="logo-img">
+                    <div class="logo-text">A.S.<span>COACHING CLASSES</span></div>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#courses">Courses</a></li>
+                    <li><a href="#director">Director</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Excellence in Board Exam Preparation</h1>
+                <p class="hero-subtitle">Helping students achieve academic excellence with personalized coaching and comprehensive study material</p>
+                <div class="hero-buttons">
+                    <a href="#courses" class="btn">Explore Courses</a>
+                    <a href="#contact" class="btn btn-secondary">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="section-padding">
+        <div class="container">
+            <h2 class="section-title">Why Choose Us</h2>
+            <div class="features-container">
+                <div class="feature-box">
+                    <div class="feature-icon">📚</div>
+                    <h3 class="feature-title">Experienced Faculty</h3>
+                    <p>Learn from teachers with over 15 years of experience in board exam preparation and expertise in their subjects.</p>
+                </div>
+                <div class="feature-box">
+                    <div class="feature-icon">📝</div>
+                    <h3 class="feature-title">Comprehensive Material</h3>
+                    <p>Access our meticulously designed study materials that cover the entire syllabus and focus on important questions.</p>
+                    <a href="path_to_your_image.jpg" target="_blank">
+                        <img src="path_to_your_image.jpg" alt="Study Material Image" style="width: 100%; height: auto; border-radius: 8px; margin-top: 20px;">
+                    </a>
+                    <a href="study_material.pdf" class="btn" style="margin-top: 20px; display: inline-block;" download>Download Study Material</a>
+                </div>
+                <div class="feature-box">
+                    <div class="feature-icon">🏆</div>
+                    <h3 class="feature-title">Proven Results</h3>
+                    <p>Our students consistently achieve top scores in board exams with over 95% securing distinction marks.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Director Section -->
+    <section id="director" class="director-section section-padding">
+        <div class="container">
+            <h2 class="section-title">Meet Our Director</h2>
+            <div class="director-content">
+                <img src="https://aicursor.com/images/user_image.jpg" alt="Mr. Ajay Sharma - Director" class="director-img">
+                <div class="director-info">
+                    <h3>Mr. Ajay Sharma</h3>
+                    <p class="director-title">Director, A.S. COACHING CLASSES</p>
+                    <p class="director-desc">With over 18 years of experience in education, Mr. Ajay Sharma has been the driving force behind A.S. COACHING CLASSES. His vision and dedication have helped thousands of students achieve academic excellence in their board examinations. Under his leadership, the institute has maintained consistently high success rates and produced numerous top scorers.</p>
+                    <p class="director-desc">Mr. Sharma holds a Master's degree in Mathematics and has been actively involved in education since 2005. His innovative teaching methods and commitment to student success have made A.S. COACHING CLASSES one of the most trusted names in board exam preparation.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Courses Section -->
+    <section id="courses" class="courses section-padding">
+        <div class="container">
+            <h2 class="section-title">Our Courses</h2>
+            <div class="courses-container">
+                <div class="course-card">
+                    <div class="course-img" style="background-image: url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
+                    <div class="course-content">
+                        <h3 class="course-title">Class 10 Board Exam Preparation</h3>
+                        <p class="course-desc">Comprehensive coaching for all subjects in 10th standard board exams with special focus on Mathematics, Science, and English.</p>
+                        <div class="course-stats">
+                            <span>Duration: 10 months</span>
+                            <span>Batch Size: 20-25</span>
+                        </div>
+                        <a href="#contact" class="btn">Enroll Now</a>
+                    </div>
+                </div>
+                <div class="course-card">
+                    <div class="course-img" style="background-image: url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
+                    <div class="course-content">
+                        <h3 class="course-title">Class 12 Science Board Prep</h3>
+                        <p class="course-desc">In-depth coaching for Physics, Chemistry, Mathematics, and Biology with regular tests and personalized attention.</p>
+                        <div class="course-stats">
+                            <span>Duration: 12 months</span>
+                            <span>Batch Size: 15-20</span>
+                        </div>
+                        <a href="#contact" class="btn">Enroll Now</a>
+                    </div>
+                </div>
+                <div class="course-card">
+                    <div class="course-img" style="background-image: url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
+                    <div class="course-content">
+                        <h3 class="course-title">Class 12 Commerce Board Prep</h3>
+                        <p class="course-desc">Expert coaching for Accountancy, Business Studies, Economics, and Mathematics with case studies and practical problem solving.</p>
+                        <div class="course-stats">
+                            <span>Duration: 12 months</span>
+                            <span>Batch Size: 15-20</span>
+                        </div>
+                        <a href="#contact" class="btn">Enroll Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section-padding">
+        <div class="container">
+            <h2 class="section-title">Contact Us</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Get in Touch</h3>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon">📍</div>
+                            <p>Gandhi Nagar, Raebareli - 229001</p>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">📞</div>
+                            <p>+91 98765 43210</p>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">✉️</div>
+                            <p>info@ascoachingclasses.com</p>
+                        </div>
+                    </div>
+                    <h3>Follow Us</h3>
+                    <div class="social-links">
+                        <a href="#" class="social-link">f</a>
+                        <a href="#" class="social-link">in</a>
+                        <a href="#" class="social-link">ig</a>
+                        <a href="#" class="social-link">yt</a>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form>
+                        <div class="form-group">
+                            <input type="text" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" placeholder="Your Phone" required>
+                        </div>
+                        <div class="form-group">
+                            <select required>
+                                <option value="" disabled selected>Select Course</option>
+                                <option value="class10">Class 10 Board Preparation</option>
+                                <option value="class12Science">Class 12 Science Board Preparation</option>
+                                <option value="class12Commerce">Class 12 Commerce Board Preparation</option>
+                                <option value="other">Other Inquiry</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <textarea placeholder="Your Message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <div class="logo-container" style="margin-bottom: 20px;">
+                        <img src="https://aicursor.com/images/user_image.jpg" alt="A.S. COACHING CLASSES Logo" class="logo-img">
+                        <div class="logo-text">A.S.<span>COACHING CLASSES</span></div>
+                    </div>
+                    <p>A.S. COACHING CLASSES is a premier coaching institute dedicated to helping students excel in their board examinations through quality education, personalized attention, and comprehensive study materials.</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#courses">Courses</a></li>
+                        <li><a href="#director">Director</a></li>
+                        <li><a href="#testimonials">Testimonials</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Courses</h3>
+                    <ul class="footer-links">
+                        <li><a href="#courses">Class 10 Board Preparation</a></li>
+                        <li><a href="#courses">Class 12 Science Board Preparation</a></li>
+                        <li><a href="#courses">Class 12 Commerce Board Preparation</a></li>
+                        <li><a href="#courses">Summer Revision Classes</a></li>
+                        <li><a href="#courses">Test Series</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Info</h3>
+                    <ul class="footer-links">
+                        <li>📍 Gandhi Nagar, Raebareli - 229001</li>
+                        <li>📞 +91 98765 43210</li>
+                        <li>✉️ info@ascoachingclasses.com</li>
+                        <li>🕒 Mon-Sat: 8:00 AM - 8:00 PM</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 A.S. COACHING CLASSES. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
